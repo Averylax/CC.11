@@ -18,9 +18,35 @@ class Book {
 }
 
 // Test Case
-const book1 = new Book('The Alchemist', 'Paulo Coelho', '1337', 5);
-console.log(book1.getDetails());
-book1.updateCopies(-1);
-console.log(book1.getDetails());
+const book1 = new Book('The Alchemist', 'Paulo Coelho', '1337', 5); // Task 1
+console.log(book1.getDetails()); // Task 1
+book1.updateCopies(-1); // Task 1
+console.log(book1.getDetails()); // Task 1
 
+console.log(`---------- Task 1 - End ----------`)
 
+// Task 2 - Created Borrower Class
+class Borrower {
+    constructor(name, borrowId) {
+        this.name = name;
+        this.borrowId = borrowId;
+        this.borrowedBooks = [];
+    }
+
+    borrowBook(book) {
+        this.borrowedBooks.push(book);
+    }
+
+    returnBook(book) {
+        this.borrowedBooks = this.borrowedBooks.filter(b => b !== book);
+    }
+}
+
+// Test Case
+const borrower1 = new Borrower('John Doe', '1234'); // Task 2
+borrower1.borrowBook(`The Alchemist`); // Task 2
+console.log(borrower1.borrowedBooks); // Task 2
+borrower1.returnBook(`The Alchemist`); // Task 2
+console.log(borrower1.borrowedBooks); // Task 2
+
+console.log(`---------- Task 2 - End ----------`)
