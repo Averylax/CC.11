@@ -77,8 +77,20 @@ class Library {
         } else {
             console.log(`Book not found or borrower not found`);}
     }
-}
 
+    // Task 5 - Implementing Book Returning System
+    returnBook(borrowerId, isbn) {
+        const book = this.books.find(b => b.isbn === isbn);
+        const borrower = this.borrowers.find(b => b.borrowId === borrowerId);
+
+        if (book && borrower && borrower.borrowedBooks.includes(book.title)) {
+            book.updateCopies(1);
+            borrower.returnBook(book.title);
+        } else {
+            console.log(`Book not found or borrower not found`);
+        }
+    }
+}
 // Test Case
 const library = new Library(); // Task 3
 library.addBook(book1); // Task 3
@@ -92,3 +104,13 @@ console.log(`---------- Task 3 - End ----------`)
 library.lendBook(1234, 1337); // Task 4
 console.log(book1.getDetails()); // Task 4
 console.log(borrower1.borrowedBooks); // Task 4
+
+console.log(`---------- Task 4 - End ----------`)
+
+// Task 5 - Implementing Book Returning System
+// Test Case
+library.returnBook(1234, 1337); // Task 5
+console.log(book1.getDetails()); // Task 5
+console.log(borrower1.borrowedBooks); // Task 5
+
+console.log(`---------- Task 5 - End ----------`)
