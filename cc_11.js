@@ -50,3 +50,26 @@ borrower1.returnBook(`The Alchemist`); // Task 2
 console.log(borrower1.borrowedBooks); // Task 2
 
 console.log(`---------- Task 2 - End ----------`)
+
+// Task 3 - Created Library Class
+class Library {
+    constructor() {
+        this.books = [];
+        this.borrowers = [];
+    }
+
+    addBook(book) {
+        this.books.push(book);
+    }
+
+    listBooks() {
+        this.books.forEach(book => console.log(book.getDetails()));
+    }
+}
+
+// Test Case
+const library = new Library(); // Task 3
+library.addBook(book1); // Task 3
+library.listBooks(); // Task 3
+
+console.log(`---------- Task 3 - End ----------`)
